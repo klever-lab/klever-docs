@@ -1,0 +1,8 @@
+[project]
+name = "technical-tool-planning-docs"
+version = "0.1.0"
+description = "Long-running technical planning docs for upcoming software tools."
+requires-python = ">=3.11"
+dependencies = [
+  "mkdocs-material==9.7.6",
+]

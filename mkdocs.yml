@@ -1,0 +1,37 @@
+site_name: Technical Tool Planning
+site_description: Long-running technical notes and implementation plans for upcoming software tools.
+site_url: https://klever-lab.github.io/docs/
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - toc:
+      permalink: true
+nav:
+  - Home: index.md
+  - Tools:
+      - tools/index.md
+      - Cloud Storage Wrapper: tools/cloud-storage-wrapper.md
+      - Cloud Media Processing: tools/cloud-media-processing.md
+      - Ephemeral VM: tools/ephemeral-vm.md
+      - Ingest Tools:
+          - tools/ingest-tools.md
+          - Torrent Ingest: tools/torrent-ingest.md
+          - Usenet Ingest: tools/usenet-ingest.md
+          - yt-dlp Ingest: tools/ytdlp-ingest.md
+  - Architecture:
+      - architecture/index.md
+      - Decisions: architecture/decisions.md
+  - Research:
+      - research/index.md
+  - Operations:
+      - operations/index.md
