@@ -1,6 +1,6 @@
 # Technical Tool Planning Docs
 
-This repository contains long-running technical planning docs for upcoming software tools.
+**IM VERY LIKELY NEVER GOING TO WORK ON THIS**
 
 ## Run Locally
 
