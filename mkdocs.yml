@@ -19,7 +19,6 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Tools:
-      - tools/index.md
       - Cloud Storage Wrapper: tools/cloud-storage-wrapper.md
       - Cloud Media Processing: tools/cloud-media-processing.md
       - Ephemeral VM: tools/ephemeral-vm.md
@@ -30,8 +29,4 @@ nav:
           - yt-dlp Ingest: tools/ytdlp-ingest.md
   - Architecture:
       - architecture/index.md
-      - Decisions: architecture/decisions.md
-  - Research:
-      - research/index.md
-  - Operations:
-      - operations/index.md
+  - Pricing: pricing.md

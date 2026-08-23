@@ -12,7 +12,7 @@ Cloud storage is normally fiddly to set up. This tool puts a clean layer on top 
 
 We make clear choices about which providers to support. We may add more over time, but we won't try to support every cloud platform.
 
-The tool is API-first. We build the core API by hand. The command-line tool and web app sit on top of that API, and we can lean on LLMs to help build those parts.
+The API is the core of our infrastructure — it runs as its own hardened server. The web app and CLI we provide are just clients on top of that API, and we build that core API by hand. Since the API is the real interface, you're welcome to vibe-code your own client against it.
 
 ## Core Capabilities
 
