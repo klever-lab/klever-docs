@@ -8,15 +8,15 @@ The cloud costs money and someone has to pay for it. Instead of hiding that cost
 
 ## Tiers
 
-### \$5/month — Membership
+### $5/month — Membership
 
 - Access to all tools.
 - All tool usage is passthrough pricing — you pay the underlying provider cost for storage, compute, and bandwidth at cost.
 - BYOK where supported: connect your own account and pay the provider directly.
 
-### \$10/month — Membership + Hosted Credits
+### $10/month — Membership + Hosted Credits
 
-- Everything in the \$5 tier.
+- Everything in the $5 tier.
 - A bundle of usage credits for a self-hosted deployment of the same tools, run on our own stack.
 - Credits cover compute, storage, and bandwidth consumed on the hosted stack. When they run out, further usage is still at cost.
 
