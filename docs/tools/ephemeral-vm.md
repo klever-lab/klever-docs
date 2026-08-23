@@ -40,3 +40,5 @@ Users should be able to select storage directories and mount them into the VM, a
 The tool should support machine options from existing cloud providers rather than hiding all infrastructure choices behind a single fixed VM type.
 
 The tool should eventually expose raw provider options directly. Presets can help with common workflows, but advanced users should be able to reach the underlying controls.
+
+In addition to direct provider passthrough, the tool should provide an "instant" or on-demand mode. Starting a VM should feel as fast as possible — ideally near-instantaneous, where a user can click a button and immediately see connection details for a ready-to-use machine. Reducing or eliminating wait time for provisioning and connection is a priority even if the underlying provider requires setup.
