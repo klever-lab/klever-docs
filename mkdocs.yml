@@ -27,6 +27,12 @@ nav:
           - Torrent Ingest: tools/torrent-ingest.md
           - Usenet Ingest: tools/usenet-ingest.md
           - yt-dlp Ingest: tools/ytdlp-ingest.md
+      - Egress Tools:
+          - tools/egress-tools.md
+          - Jellyfin Server: tools/jellyfin-server.md
+          - Secure Download Links: tools/secure-download-links.md
+          - Encrypted File Downloads: tools/encrypted-downloads.md
+          - Livestreaming: tools/livestreaming.md
   - Architecture:
       - architecture/index.md
   - Pricing: pricing.md
