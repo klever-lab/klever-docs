@@ -18,21 +18,28 @@ markdown_extensions:
       permalink: true
 nav:
   - Home: index.md
-  - Tools:
-      - Cloud Storage Wrapper: tools/cloud-storage-wrapper.md
-      - Cloud Media Processing: tools/cloud-media-processing.md
-      - Ephemeral VM: tools/ephemeral-vm.md
-      - Ingest Tools:
-          - tools/ingest-tools.md
-          - Torrent Ingest: tools/torrent-ingest.md
-          - Usenet Ingest: tools/usenet-ingest.md
-          - yt-dlp Ingest: tools/ytdlp-ingest.md
-      - Egress Tools:
-          - tools/egress-tools.md
-          - Jellyfin Server: tools/jellyfin-server.md
-          - Secure Download Links: tools/secure-download-links.md
-          - Encrypted File Downloads: tools/encrypted-downloads.md
-          - Livestreaming: tools/livestreaming.md
-  - Architecture:
-      - architecture/index.md
-  - Pricing: pricing.md
+  - K-Suite:
+      - Technical Tool Planning: planning.md
+      - Tools:
+          - Cloud Storage Wrapper: tools/cloud-storage-wrapper.md
+          - Cloud Media Processing: tools/cloud-media-processing.md
+          - Ephemeral VM: tools/ephemeral-vm.md
+          - Ingest Tools:
+              - tools/ingest-tools.md
+              - Torrent Ingest: tools/torrent-ingest.md
+              - Usenet Ingest: tools/usenet-ingest.md
+              - yt-dlp Ingest: tools/ytdlp-ingest.md
+          - Egress Tools:
+              - tools/egress-tools.md
+              - Jellyfin Server: tools/jellyfin-server.md
+              - Secure Download Links: tools/secure-download-links.md
+              - Encrypted File Downloads: tools/encrypted-downloads.md
+              - Livestreaming: tools/livestreaming.md
+      - Architecture:
+          - architecture/index.md
+      - Pricing: pricing.md
+  - Guaranine:
+      - Overview: guaranine/index.md
+      - Architecture: guaranine/architecture.md
+      - Server Provisioning: guaranine/provisioning.md
+      - Config Management: guaranine/config-management.md
