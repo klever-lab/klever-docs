@@ -2,14 +2,14 @@
 
 ## Summary
 
-A tool for torrenting directly into the user's cloud storage.
+A service for downloading BitTorrent payloads directly into cloud storage.
 
-## Initial Direction
+## Architecture
 
-The tool should pull torrent content into the shared storage layer rather than requiring files to pass through the user's local machine.
+BitTorrent client workers execute in cloud compute instances, assembling payloads and writing completed files directly to target paths in the cloud storage wrapper without transferring data through client network connections.
 
 ## Core Capabilities
 
-- Start torrent downloads.
-- Store completed files in selected cloud storage directories.
-- Integrate with the cloud storage wrapper.
+- Initiate and manage BitTorrent transfer tasks.
+- Persist completed downloads into designated cloud storage directories.
+- Integrate with the cloud storage wrapper for path resolution and quota tracking.

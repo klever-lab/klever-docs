@@ -1,13 +1,13 @@
 # Architecture
 
-## API-First Tools
+## API-First Architecture
 
-The API is the core of our infrastructure — it runs as its own hardened server and is the single source of truth. We build it by hand.
+The API server functions as the central execution layer and authoritative source of state for all tools.
 
-The web app and CLI we provide are just clients on top of that API. Since the API is the real interface, you're welcome to vibe-code your own client against it.
+The web application and command-line interfaces operate strictly as clients over this API. External clients can integrate directly against the same endpoints.
 
-## Cloud Compatibility Layer
+## Cloud Abstraction Layer
 
-The suite should work like an opinionated compatibility layer over cloud providers.
+The suite operates as an abstraction layer across supported cloud providers.
 
-The tools should make cloud primitives easier to combine while still letting advanced users reach the raw provider options when needed. Presets can exist, but they should not be the only interface.
+The architecture provides composable interfaces for cloud primitives while preserving direct access to underlying provider configurations alongside default presets.

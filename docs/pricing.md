@@ -1,33 +1,29 @@
 # Pricing
 
-## Costco Model
+## Pricing Model
 
-Pricing works like Costco: a small membership to get in the door, then everything inside is at cost.
-
-The cloud costs money and someone has to pay for it. Instead of hiding that cost inside a marked-up subscription, we pass it through. You pay what the provider charges, nothing more, or you bring your own account and pay them directly.
+The pricing model combines a flat monthly membership fee with direct, at-cost pass-through of underlying cloud provider expenses (storage, compute, bandwidth) or direct BYOK (Bring Your Own Key) provider billing.
 
 ## Tiers
 
 ### $5/month — Membership
 
 - Access to all tools.
-- All tool usage is passthrough pricing — you pay the underlying provider cost for storage, compute, and bandwidth at cost.
-- BYOK where supported: connect your own account and pay the provider directly.
+- Infrastructure usage billed at direct provider cost for storage, compute, and bandwidth without markups.
+- BYOK where supported: connect external provider accounts to pay providers directly.
 
 ### $10/month — Membership + Hosted Credits
 
-- Everything in the $5 tier.
-- A bundle of usage credits for a self-hosted deployment of the same tools, run on our own stack.
-- Credits cover compute, storage, and bandwidth consumed on the hosted stack. When they run out, further usage is still at cost.
+- All features of the $5 tier.
+- An included allowance of usage credits for the hosted deployment run on Klever infrastructure.
+- Credits apply toward compute, storage, and bandwidth consumed on the hosted deployment; subsequent usage is billed at cost.
 
 ## Notes
 
-- The tools themselves are open source. Self-hosting is always an option if you prefer to run everything yourself.
-- Hosted credits are tied to our self-hosted stack and do not apply to BYOK usage.
-- Specific credit amounts and passthrough rates will be published per tool as each one reaches a billable milestone.
+- The software is open source; self-hosting is supported.
+- Hosted credits apply exclusively to the hosted deployment and do not apply to BYOK accounts.
+- Specific credit quotas and unit pass-through rates will be published per tool as each tool reaches general availability.
 
-## Open Source Disclaimer
+## Licensing Notice
 
-Look — I want to keep this stuff open source, even if it means eating a moderate loss. That's the plan.
-
-But if it ever gets to the point where keeping it open is costing me a ton of money, I might have to close-source it. That's not a rug pull, I'm telling you right now that it's on the table. I'd really prefer not to — only if I have to.
+The software is currently released under an open source license. If infrastructure hosting expenses exceed operating limits, future releases may adopt a source-available or commercial license.

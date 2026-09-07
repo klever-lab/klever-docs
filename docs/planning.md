@@ -1,20 +1,14 @@
-# Technical Tool Planning
-
 ## Vision
 
-A set of open source tools for advanced users. The tools work together, run in the cloud, and don't lock you into a monthly subscription.
+A suite of open source cloud tools designed for advanced technical workloads. The components operate together across cloud environments without requiring monthly software subscriptions.
 
-## Core Idea
+## Infrastructure Cost Model
 
-These tools need the cloud to run, and the cloud costs money. Someone has to pay for the servers, storage, and network.
+Workloads require cloud compute, storage, and network resources. Bring Your Own Key (BYOK) is the primary operating model: users connect credentials from supported cloud providers and pay infrastructure costs directly to those providers.
 
-Most products hide that cost inside a subscription. We don't. You pay what the cloud actually costs, nothing more. BYOK is supported where it fits, so you can use your own provider account and pay them directly.
+## Principles
 
-## Product Principles
-
-- We make clear choices instead of trying to support every option.
-- We give you some choice where it makes sense.
-- We may skip a cloud provider if it doesn't fit how the tools are built or run.
-- We eventually expose raw underlying options, not just simplified presets.
-- We are building an opinionated wrapper around cloud providers where the pieces speak the same language.
-- The target user is someone doing unusual, advanced, or highly technical work with computers.
+- **Opinionated provider support:** The suite integrates with selected cloud providers that fit the architecture rather than supporting all platforms.
+- **Direct provider access:** Presets provide standard configurations, while underlying provider options remain directly configurable.
+- **Unified interface:** The tools present a consistent API and configuration model across disparate cloud services.
+- **Workload focus:** Architecture and defaults are tuned for specialized, high-throughput, and non-standard technical tasks.

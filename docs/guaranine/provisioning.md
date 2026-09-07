@@ -1,16 +1,16 @@
 # Server Provisioning
 
-## Provisioning A Server
+## Instance Lifecycle
 
-When instructed to provision, a machine creates an LXC instance with the specified resources. That instance:
+Upon receiving a provision command, a node creates an LXC container with the specified hardware resources. The instance:
 
-- Gets added to the Tailscale network.
-- Has its hostname saved.
+- Joins the Tailscale mesh network.
+- Registers its hostname.
 
-If the server is ever destroyed, it is also removed from the Tailscale network.
+Upon container destruction, the instance is removed from the Tailscale network.
 
-## Workload Distribution
+## Workload Scheduling
 
-Provisioning takes resource requirements into account — workloads are distributed across machines based on what each workload needs and what each node has available.
+Workload placement accounts for resource requirements: containers are scheduled across available nodes based on CPU, memory, and storage limits.
 
-Spin-up options include the hostname; resource sizing comes from the workload being placed.
+Provisioning parameters specify the container hostname and resource allocations defined by the assigned workload.

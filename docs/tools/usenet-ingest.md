@@ -2,14 +2,15 @@
 
 ## Summary
 
-A tool for downloading from Usenet directly into the user's cloud storage.
+A service for downloading NNTP/Usenet binaries directly into cloud storage.
 
-## Initial Direction
+## Architecture
 
-The tool should pull Usenet content into the shared storage layer rather than requiring files to pass through the user's local machine.
+NNTP download workers execute in cloud compute instances, verifying and assembling binaries before writing completed files directly to the cloud storage wrapper without transferring data through client network connections.
 
 ## Core Capabilities
 
-- Start Usenet downloads.
-- Store completed files in selected cloud storage directories.
-- Integrate with the cloud storage wrapper.
+- Initiate and monitor NNTP/NZB download tasks.
+- Verify archive integrity and assemble multi-part binaries.
+- Persist completed files into designated cloud storage directories.
+- Integrate with the cloud storage wrapper for path resolution and quota tracking.

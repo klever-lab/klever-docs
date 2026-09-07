@@ -2,18 +2,16 @@
 
 ## Overview
 
-Every machine in the cluster joins a Tailscale network. A Python server runs on each machine listening on port 48584 and can receive and execute commands. Those commands relate to the platform features: provisioning servers, running serverless functions, storage.
+Cluster nodes join a shared Tailscale mesh network. A Python daemon runs on each node listening on port 48584 to receive and execute platform instructions for provisioning instances, executing serverless functions, and managing storage operations.
 
-The machines are the hardware; Guaranine is the layer that turns them into a cloud. It is not the homelab itself — it is what runs on top of one.
+## Node Execution Model
 
-## Command Flow
+1. The node connects to the Tailscale mesh network.
+2. The daemon listens on TCP port 48584.
+3. Inbound commands arriving on that port are received and executed locally.
 
-1. Each machine establishes a connection to the Tailscale network.
-2. A Python server listens on port 48584.
-3. Commands arrive over that port and get executed locally by that server.
-
-This keeps every node identical: same VPN membership, same listener, same command surface. The network is the fabric; the node agent is the executor.
+Nodes maintain uniform configuration: mesh network membership, an active port 48584 listener, and a standardized execution interface.
 
 ## Relationship to K-Suite
 
-Guaranine is part of the Klever Lab ecosystem but is its own project, separate from K-Suite. Where K-Suite is user-facing tools built around cloud providers, Guaranine is infrastructure — the platform those tools (or anything else) could run on top of.
+Guaranine is an infrastructure platform within the Klever Lab ecosystem, developed independently of K-Suite. While K-Suite provides application-level tools over commercial cloud providers, Guaranine provides self-hosted compute and storage infrastructure on local hardware.

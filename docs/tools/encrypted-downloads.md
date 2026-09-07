@@ -2,29 +2,25 @@
 
 ## Summary
 
-A tool for sharing files where the content stays encrypted, even if the link leaks.
+A tool for distributing encrypted files where content confidentiality is preserved independently of link dissemination.
 
-## Initial Direction
+## Security Model
 
-Two complementary layers:
+Protection operates across two distinct layers:
 
-- Encryption in transit: every download is served over TLS, never plain HTTP.
-- Encryption of content: the file is encrypted at rest so that storage access alone does not reveal it.
+- **Transport security:** Downloads are transmitted exclusively over TLS.
+- **Payload encryption:** Objects are encrypted at rest; storage access alone does not expose plaintext content.
 
-Sharing should be possible with nothing more than a password or a key phrase, exchanged out of band.
+Decryption keys or passphrases are distributed out-of-band.
 
 ## Core Capabilities
 
-- Encrypt files before they are stored or served.
-- Generate download links protected by a user-chosen password or key.
-- Decrypt on the fly for the person downloading, or hand out the encrypted blob and key separately for true zero-knowledge sharing.
-- Never log or store the passwords or keys used to protect files.
-- Optional auto-expiry and download limits, matching the secure download links tool.
+- Encrypt files prior to upload or distribution.
+- Generate download URLs associated with client-managed encryption keys.
+- Support both server-side decryption during transfer and client-side zero-knowledge decryption.
+- Avoid logging or persisting encryption keys on backend servers.
+- Apply expiration timestamps and download count thresholds.
 
 ## Storage Integration
 
-Encryption works with the cloud storage wrapper. For zero-knowledge sharing, the wrapper stores only ciphertext and the key never leaves the user's machine.
-
-## Roadmap Position
-
-Planned as part of the later egress batch, after the storage wrapper exists.
+The tool integrates with the cloud storage wrapper. In zero-knowledge configurations, the storage layer persists only ciphertext, and cryptographic keys remain strictly on client endpoints.

@@ -2,78 +2,48 @@
 
 ## Summary
 
-A tool that runs ffmpeg on your files in the cloud.
+A service that executes FFmpeg media transformations in cloud environments on files stored via the storage wrapper.
 
 ## Initial Direction
 
-This is the second tool in the suite. It works with the cloud storage wrapper.
-
-The point is speed. Instead of running media jobs on your own computer, you run them on powerful cloud machines with fast storage. Big files get processed faster, and your own machine stays free.
-
-Think of it less as a simple ffmpeg button and more as a temporary workspace in the cloud. The tool starts up a short-lived cloud machine, pulls in your files, gives you ffmpeg, and lets you work.
+Media processing tasks execute on transient cloud instances equipped with GPU acceleration and high-throughput network access to the storage wrapper, offloading computation and transfer bandwidth from the local client.
 
 ## Core Capabilities
 
-- Pick files stored through the cloud storage wrapper.
-- Run ffmpeg jobs in the cloud.
-- Use powerful GPU machines when it helps.
-- Take advantage of fast transfers between storage and the machine doing the work.
-- Run batch jobs across many files.
+- Select source files managed by the cloud storage wrapper.
+- Execute FFmpeg processing jobs on transient compute instances.
+- Allocate GPU-accelerated instances for hardware encoding and decoding.
+- Leverage high-bandwidth internal networks between compute and storage.
+- Process multi-file batch workloads.
 
-## Command Modes
+## Execution Modes
 
-The tool has two modes:
+- **Guided mode:** Standard presets for routine transformations (such as transcoding, scaling, container remuxing, and relocating MP4 `moov` atoms).
+- **Raw mode:** Direct execution of arbitrary FFmpeg command strings and multi-step scripts within the worker instance.
 
-- Guided mode for common tasks, with safe defaults.
-- Raw mode for advanced users who want to type ffmpeg commands directly.
+## Execution Lifecycle
 
-Guided mode points you to good presets and ready-made commands for common tasks:
+The execution model evaluates two designs:
 
-- Resizing media.
-- Re-encoding media.
-- Moving the moov atom.
-- Merging files.
+- **Per-job execution:** Provision an instance, fetch input files from storage, execute the command, write outputs to storage, and terminate the instance.
+- **Interactive session:** Maintain an active transient instance for iterative command execution across multiple files.
 
-Anything more complex, like special video filters, happens in raw mode.
-
-## Workspace
-
-Raw mode gives you full control inside a short-lived cloud machine.
-
-You can:
-
-- Run ffmpeg directly.
-- Create temporary files.
-- Create temporary folders.
-- Chain several steps together.
-
-The machine is temporary and tied to your session.
-
-## Open Question: One Job or a Full Session
-
-There are two ways to run the work:
-
-- One job: start a machine, pull in the files, run the command, send the results back to storage, then shut down.
-- Full session: start a machine and let the user run commands for as long as they want.
-
-Which one we pick depends on how hard it is to build, how we keep costs down, the experience we want, and how much hands-on control the first version really needs.
+Evaluation criteria include instance startup latency, compute billing increments, and workflow control requirements.
 
 ## First Milestone
 
-The first version should prove the one-job model.
+The initial release implements the per-job lifecycle:
 
-The flow:
+1. Provision a transient compute worker for a single task.
+2. Stage input files from the storage wrapper.
+3. Execute the target FFmpeg command or preset.
+4. Persist output files to the storage wrapper.
+5. Terminate the compute instance.
 
-1. Start a machine for one job.
-2. Pull in the chosen files from storage.
-3. Run the ffmpeg command or guided preset.
-4. Send the results back to storage.
-5. Shut the machine down.
-
-The full session can come later.
+Interactive sessions are deferred to subsequent releases.
 
 ## Batch Processing
 
-The tool should support grouping many files into a single batch media processing workflow, such as running ffmpeg against 1,000 files overnight.
+The service will support batch execution over large collections of media assets.
 
-Batch processing must be cheaper than running the same work as many individual jobs. If the system cannot make bulk processing more cost-efficient, batch processing should not be supported.
+Batch execution must achieve higher cost-efficiency and lower aggregate provisioning overhead than equivalent sequential single-job executions to justify deployment.

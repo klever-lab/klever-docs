@@ -2,26 +2,22 @@
 
 ## Summary
 
-A tool for serving media files as livestreams, exposing RTMP links that push to an HLS stream.
+A service for broadcasting media assets stored in cloud storage as live streams via RTMP ingest and HLS delivery.
 
-## Initial Direction
+## Architecture
 
-The tool should turn files already in storage into livestreamable content. An RTMP endpoint ingests the stream and the tool publishes HLS output that anyone with the link can watch.
+The service converts stored media files into live video streams. An RTMP endpoint accepts incoming stream data or initiates playback from storage, and a packaging service segments the stream into HLS playlists delivered over HTTPS.
 
-Streams should be easy to start and stop, and tied to a storage-backed source file or source directory.
+Stream lifecycles are bound to designated storage sources and support programmatic startup and termination.
 
 ## Core Capabilities
 
-- Expose an RTMP ingest link for a selected media source.
-- Transcode to HLS for playback across devices.
-- Serve the HLS output over HTTPS by default.
-- Optional access control on who can watch the stream.
-- Tear down the stream and its resources when done.
+- Expose RTMP ingest endpoints for designated media sources.
+- Package video streams into adaptive HLS segments for multi-client playback.
+- Deliver HLS playlists over TLS endpoints.
+- Apply token-based or IP-restricted viewing controls.
+- Automatic resource teardown upon stream termination.
 
 ## Storage Integration
 
-Source media comes from the cloud storage wrapper. Intermediate and packaged stream segments should write back to storage where sensible instead of only living on the VM.
-
-## Roadmap Position
-
-Planned as part of the later egress batch, after the storage wrapper exists.
+Input media assets are retrieved from the cloud storage wrapper. Manifests and packaged HLS segments can persist back to object storage or remain in transient cache during broadcast.

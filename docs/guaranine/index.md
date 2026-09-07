@@ -1,20 +1,18 @@
 # Guaranine
 
-`named after the failed homelab with my boy froggy.`
-
 ## Summary
 
-Guaranine is a cloud platform, not a homelab. It runs on top of your own hardware and provides typical cloud features: virtual machines, containers, storage, and serverless functions. Simple, written in Python, and it is my AWS at home.
+Guaranine is a self-hosted cloud platform written in Python that runs on dedicated hardware to provide virtual machines, containers, storage, and serverless functions.
 
-It also acts as a configuration management agent for the machine it runs on — keeping the host OS configured and the VPN connection alive.
+It also functions as a host configuration management agent, maintaining host OS configuration and Tailscale mesh network connectivity.
 
-## What It Does
+## Core Capabilities
 
-- **Provisioning** — spins up servers (LXC instances) with specified resources and distributes workloads based on resource requirements.
-- **Serverless Functions** — run small units of code on your own hardware.
-- **Storage** — a place to put things, like any other cloud.
-- **Config Management** — applies the NixOS config from [klever-lab/nixos](https://github.com/klever-lab/nixos) and maintains the Tailscale VPN connection.
+- **Provisioning** — provisions LXC instances with specified resource allocations and schedules workloads based on node capacity.
+- **Serverless Functions** — executes event-driven compute units on local hardware.
+- **Storage** — provides persistent file and object storage across cluster nodes.
+- **Config Management** — applies declarative NixOS configurations from [klever-lab/nixos](https://github.com/klever-lab/nixos) and maintains active Tailscale VPN connections.
 
 ## Status
 
-Early stage. The concept below is the plan; see the Architecture and Provisioning pages for how the pieces fit together.
+Early development. See [Architecture](architecture.md) and [Server Provisioning](provisioning.md) for architectural and scheduling specifications.

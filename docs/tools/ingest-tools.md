@@ -2,28 +2,23 @@
 
 ## Summary
 
-The ingest tools bring external content directly into the shared storage layer.
+Ingest tools transfer external data directly into the shared cloud storage layer.
 
-## Initial Tools
+## Component Services
 
 - Torrent ingest.
 - Usenet ingest.
 - yt-dlp ingest.
 
-## Roadmap Position
+## Architecture and Execution Model
 
-These tools are planned as a later batch, not part of the initial POC.
+Ingest tasks execute in cloud compute environments, writing outputs directly to target directories in the cloud storage wrapper without transferring data through client network connections.
 
-## Shared Direction
+Each ingest protocol is managed by a distinct service to handle differences in network protocols, concurrency limits, and state tracking.
 
-These tools should avoid routing large files through the user's local machine. They should pull data in the cloud and write outputs directly to storage directories selected through the cloud storage wrapper.
+Common architectural components include:
 
-Each ingest tool should remain its own separate tool because torrenting, Usenet, and yt-dlp are different under the hood. Advanced users will understand and expect those differences.
+- Shared destination path mapping backed by the cloud storage wrapper.
+- Future network controls for egress IP selection, VPN tunneling, and forward proxy routing.
 
-The tools should still share some configuration concepts:
-
-- Common download-to options backed by the cloud storage wrapper.
-- Later support for choosing which VPN or IP to download from.
-- Later support for configuring a proxy for downloads.
-
-VPN, IP selection, and proxy controls are not required for the first version.
+Network routing controls (VPN, static IP egress, forward proxies) are deferred to subsequent releases.

@@ -1,4 +1,4 @@
-# Technical Tool Planning Docs
+# Klever Docs
 
 **IM VERY LIKELY NEVER GOING TO WORK ON THIS**
 
@@ -16,7 +16,7 @@ Start the docs server:
 uv run mkdocs serve
 ```
 
-Then open `http://127.0.0.1:8000`.
+Then open `http://127.0.0.1:8080`.
 
 ## Structure
 

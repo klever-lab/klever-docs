@@ -1,6 +1,7 @@
-site_name: Technical Tool Planning
+site_name: Klever Docs
 site_description: Long-running technical notes and implementation plans for upcoming software tools.
 site_url: https://klever-lab.github.io/docs/
+dev_addr: '127.0.0.1:8080'
 theme:
   name: material
   features:

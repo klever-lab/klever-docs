@@ -2,26 +2,22 @@
 
 ## Summary
 
-A tool for deploying a Jellyfin media server in the cloud, pointed at the user's storage.
+A service for deploying an ephemeral Jellyfin media server instance connected to directories in the cloud storage wrapper.
 
-## Initial Direction
+## Architecture
 
-Deploys should be simple: pick a library, pick storage directories, and get a working media server. No manual config, no fiddling with the Jellyfin admin panel.
+Deployment is automated: selecting source media directories provisions and configures an instance without requiring manual server administration.
 
-The server should be ephemeral enough to spin up for a watch session and tear down when done.
+Instances support transient lifecycles, enabling on-demand provisioning and teardown per viewing session.
 
 ## Core Capabilities
 
-- Deploy a Jellyfin server with sensible defaults.
-- Point media libraries at selected storage directories.
-- Expose the server over HTTPS with a real domain or tunnel.
-- Restrict access to the user's own accounts.
-- Tear the server down when finished.
+- Automated deployment of pre-configured Jellyfin instances.
+- Mount media libraries from selected cloud storage wrapper directories.
+- Expose web interfaces over TLS via automated DNS or encrypted tunnels.
+- Enforce authenticated user access controls.
+- Teardown and resource release upon session completion.
 
 ## Storage Integration
 
-Libraries mount directly from the shared storage layer via the cloud storage wrapper. Transcoding should write back into storage when it needs disk space, rather than requiring a large local disk on the VM.
-
-## Roadmap Position
-
-Planned as part of the later egress batch, after the storage wrapper exists.
+Media directories mount from the shared cloud storage wrapper. Transcoding scratch space streams temporary segments to storage or transient disks rather than requiring persistent local instance storage.

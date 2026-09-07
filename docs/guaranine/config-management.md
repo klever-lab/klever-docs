@@ -1,14 +1,14 @@
 # Config Management
 
-## Role
+## Operational Role
 
-Beyond its cloud features, Guaranine acts as a configuration management agent for the physical machine it runs on. Two duties:
+In addition to executing platform services, Guaranine functions as a host configuration agent with two responsibilities:
 
-- **Apply NixOS config** from [klever-lab/nixos](https://github.com/klever-lab/nixos).
-- **Maintain the Tailscale VPN connection** so the mesh stays up and nodes stay reachable.
+- **Apply declarative NixOS configurations** from [klever-lab/nixos](https://github.com/klever-lab/nixos).
+- **Maintain Tailscale VPN connectivity** to ensure continuous inter-node reachability.
 
-The host OS is NixOS, managed as code. Guaranine makes sure each machine stays in line with that config while still doing its day job of serving cloud-platform commands on port 48584.
+The host operating system is NixOS, defined as code. Guaranine reconciles host state against the repository configuration while concurrently listening for and executing platform commands on port 48584.
 
-## Why This Matters
+## Node Consistency
 
-In a cloud made of your own hardware, there is no image registry or base AMI keeping nodes consistent. The config management duty fills that role: every box stays identical and connected without manual attention.
+Without centralized base machine images, the configuration management service maintains deterministic node configurations and active network connections across physical hosts.

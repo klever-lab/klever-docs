@@ -2,48 +2,38 @@
 
 ## Summary
 
-A tool that lets you upload files to cloud storage and download them later, with sensible security set up for you.
+A service for uploading and downloading files from cloud object storage with standardized access controls.
 
 ## Initial Direction
 
-This is the first tool in the suite.
+The cloud storage wrapper serves as the shared file abstraction layer for the suite. It standardizes object storage credentials, bucket policies, and transfer operations behind a common API.
 
-Cloud storage is normally fiddly to set up. This tool puts a clean layer on top so you don't have to deal with the provider's settings yourself.
-
-We make clear choices about which providers to support. We may add more over time, but we won't try to support every cloud platform.
-
-The API is the core of our infrastructure — it runs as its own hardened server. The web app and CLI we provide are just clients on top of that API, and we build that core API by hand. Since the API is the real interface, you're welcome to vibe-code your own client against it.
+The API server runs as the authoritative backend. Web and CLI interfaces act as clients over this API, and external integrations can connect directly against the defined endpoints.
 
 ## Core Capabilities
 
-- Upload files to cloud storage.
-- Download files from cloud storage.
-- Set up the right security.
-- Handle the settings needed to store files safely.
+- Upload and download files via standardized endpoints.
+- Apply access control and encryption defaults.
+- Manage provider credentials and bucket configurations.
 
 ## First Milestone
 
-Build the smallest version of the API that proves the tool works and can connect to the next tool in the suite.
+The initial milestone implements a minimal API for authenticated file transfers and directory listings required by downstream services.
 
-Keep the first version small. Things like sharing, permissions, extra file details, or a full file manager can wait until the next tool actually needs them.
-
-The storage wrapper should become the shared file layer for the rest of the suite. Other tools should be able to import, export, or mount user-selected files and directories from it.
+Advanced sharing controls, granular role-based permissions, and web-based file management are deferred to subsequent releases. Downstream tools import, export, or mount storage paths directly through this layer.
 
 ## Storage Backends
 
-The storage layer is built around S3.
+The storage architecture is built around the S3 API standard.
 
-Where we start:
+Target backends:
 
-- BYOK: connect your own S3-compatible account if you have one.
-- Backblaze as the default, billed to you at cost.
-- rclone support, so you can connect other providers like Google Drive or Dropbox.
+- BYOK: Bring Your Own Key for arbitrary S3-compatible endpoints.
+- Backblaze B2 as the default hosted backend, billed at provider cost.
+- rclone integration for additional storage providers (such as Google Drive or Dropbox).
 
-## Post-POC Features
+## Post-POC Capabilities
 
-- Semantic search across stored files.
-- Tagging for stored files and directories.
-
-Semantic search should eventually cover both file contents and file metadata, including names and other descriptive fields.
-
-Automatic semantic profiling should be a first-class feature. The system should be able to analyze stored files and generate useful semantic metadata instead of relying only on manual organization.
+- Semantic search indexing file contents and metadata attributes.
+- Tagging taxonomies for stored objects and directory paths.
+- Automated semantic profiling to extract descriptive metadata upon object ingestion.
