@@ -39,8 +39,3 @@ nav:
       - Architecture:
           - architecture/index.md
       - Pricing: pricing.md
-  - Guaranine:
-      - Overview: guaranine/index.md
-      - Architecture: guaranine/architecture.md
-      - Server Provisioning: guaranine/provisioning.md
-      - Config Management: guaranine/config-management.md
